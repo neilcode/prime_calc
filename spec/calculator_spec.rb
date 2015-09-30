@@ -15,10 +15,10 @@ describe Calculator do
 	
 	end
 
-	describe '#multiples' do
+	describe '#data' do
 		before do
 			@calc = Calculator.new([2,4,6,8,10])
-			@output = @calc.multiples
+			@output = @calc.data
 		end
 		
 		it 'returns an array of integer arrays' do

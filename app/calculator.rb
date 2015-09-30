@@ -7,7 +7,7 @@ class Calculator
 		@number_set = data
 	end
 
-	def multiples
+	def data
 		# memoize this data so calling it more than once
 		# doesn't require re-running calculations on static data.
 		@multiples ||= create_multiplication_table

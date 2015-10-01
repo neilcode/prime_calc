@@ -8,6 +8,22 @@ In designing this program, I was asked to consider the following:
 * Complexity: How fast does your code run? Does it scale?
 * What if we want N primes?
 * Write tests. Try to demonstrate TDD/BDD.
+---
+
+### Dependencies
+* rspec
+
+### How To Run
+* Clone the repo to your local machine. 
+* execute `./app/run.rb` from the console to observe the normal output of the program
+  * Optionally, here are a few command line options you can use:
+  * `-range:N` or `-range:N-M` will generate primes up to the Nth prime or display only the Nth to Mth primes.
+  * `-benchmark` runs a benchmark of the 3 different tests for primality included in the app. The benchmark demonstrates the speed of each algorithm in milliseconds when run against odd numbers from 3 to 10000.
+  * `-bf` generates primes with a brute force recursive algorithm to test primality.
+  * `-k`  generates primes with the `6k +- 1` aka SixK algorithm to test primality.
+  * `-f`  generates primes with Fermat's Little Theorem, a probabilistic primality test.
+
+---
 
 ### Findings
 My first thought in solving this challenge was to use the [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes). However, I soon realized that the Sieve is useful when you want to find all primes in a given set of numbers. Since we might want to endlessly generate primes until the Nth prime, the Sieve is not ideal. Next, I went for a simple brute force approach with trial division:
@@ -37,16 +53,3 @@ I *was* surprised at just how much faster SixK was compared to Fermat. It scales
 
 **Therefore, in satisfying the initial request in this code challenge, considering complexity and scalability, I would recommend the SixK method. I have made it the default algorithm used when running the application.**
 
-### Dependencies
----
-* rspec
-
-### How To Use
-* Clone the repo to your local machine. 
-* execute `./app/run.rb` from the console to observe the normal output of the program
-  * Optionally, here are a few command line options you can use:
-  * `-range:N` or `-range:N-M` will generate primes up to the Nth prime or display only the Nth to Mth primes.
-  * `-benchmark` runs a benchmark of the 3 different tests for primality included in the app. The benchmark demonstrates the speed of each algorithm in milliseconds when run against odd numbers from 3 to 10000.
-  * `-bf` generates primes with a brute force recursive algorithm to test primality.
-  * `-k`  generates primes with the `6k +- 1` aka SixK algorithm to test primality.
-  * `-f`  generates primes with Fermat's Little Theorem, a probabilistic primality test.

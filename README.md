@@ -1,6 +1,8 @@
 # prime_calc
 An app that prints a multiplication table of the first 10 prime numbers to STDOUT
 
+**Note:** A simple solution that does not contain multiple Primality tests, benchmark mode, etc. exists on a separate branch called `simple`. Execute it the same way, by running `app/run.rb` from console.
+
 ### Summary
 In designing this program, I was asked to consider the following: 
 * Complexity: How fast does your code run? Does it scale?

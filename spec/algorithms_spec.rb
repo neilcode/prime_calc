@@ -4,6 +4,7 @@ require_relative '../algorithms/six_k'
 require_relative '../algorithms/fermat'
 
 algorithms = [BruteForce, SixK, Fermat]
+# I wanted to test all algorithms with the same specs and avoid repeating so I'm getting a bit meta!
 
 algorithms.each do |algorithm|
 	describe algorithm do

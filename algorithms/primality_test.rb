@@ -1,4 +1,10 @@
 class PrimalityTest
+	# base abstract class for the Primality algorithms. 
+	# Feeds candidate numbers to #is_prime? and records results if True
+	# Stops when the desired number of primes is reached.
+	# Example: SixK.get_primes(10)
+	# would return the first 10 primes in an array
+
 	def self.get_primes(max_number_of_primes)
 		return [] unless max_number_of_primes > 0
 		

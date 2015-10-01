@@ -20,7 +20,7 @@ def parse_args
 	end
 
 	if range = ARGV.find {|a| a.include?("range:") }
-		range = range.gsub("-range:", "").split("-").map(&:to_i).last(2)
+		range = range.gsub("-range:", "").split("-").map(&:to_i)
 		
 		range.length >= 2 ? OPTIONS[:range] = (range.first..range.last) : OPTIONS[:range] = range.first
 	end

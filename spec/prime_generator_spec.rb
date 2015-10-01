@@ -4,7 +4,7 @@ require_relative '../algorithms/brute_force'
 
 describe PrimeGenerator do
 	describe 'Instantiation' do
-		it 'requires a recipe object' do
+		it 'requires an algorithm object to be injected' do
 			expect { PrimeGenerator.new }.to raise_error(ArgumentError)
 		end
 	end

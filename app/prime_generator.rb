@@ -1,6 +1,6 @@
 class PrimeGenerator
 	
-	attr_reader :range_requested
+	attr_reader :range_requested, :last_prime
 
 	def initialize(algorithm, num_of_primes = nil)
 		@range_requested = case
@@ -11,23 +11,28 @@ class PrimeGenerator
 											 else
 												 (1..10)
 											 end
-
+    @last_prime = range_requested.max                 
 	  @algorithm = algorithm
-  end
-
-  def algorithm_used
-  	algorithm.class.to_s
+    @primes = [2]
   end
 
   def primes
   	@primes ||= algorithm.get_primes(range_requested.max)
-  	
-  	@primes[(range_requested.min - 1)..(range_requested.max - 1)]
+    @primes[range_requested]
   end
 
   private
 
   def algorithm
   	@algorithm
+  end
+
+  def adjusted_range
+    #just in case the user who requested the range was counting from 0 like a good programmer should.
+    min = range_requested.min - 1
+    min = 0 if min < 0
+    max = range_requested.max - 1
+
+    (min..max)
   end
 end

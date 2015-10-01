@@ -1,12 +1,8 @@
-require_relative 'calculator' 
-
 class TableGenerator
-
 	attr_reader :header
 
-	def initialize(numbers)
-		@header = numbers
-		@calculator = Calculator.new(numbers)
+	def initialize(number_array)
+		@header = number_array
 	end
 
 	def draw
@@ -21,21 +17,30 @@ class TableGenerator
 		end
 	end
 
+	def table_data
+		# memoize this data so calling it more than once
+		# doesn't require re-running calculations on static data.
+		@multiples ||= create_multiplication_table
+	end
+	
 	def table_with_headers
 		#with the 2D array, add the header row vertically on the 'left' with #zip
 		#then horizontally at the top with #unshift
 		
-		@table_with_headers ||= header.zip(display_data).map(&:flatten).unshift(header)
+		@table_with_headers ||= header.zip(table_data).map(&:flatten).unshift(header)
 	end
 
 	private
 
-	def display_data
-		@data ||= calculator.data
-	end
+	def create_multiplication_table
+		multiples = []
+		number_set = header
 
-	def calculator
-		@calculator
-	end
-	
+		number_set.each do |number|
+			row = number_set.each_with_object([]) { |n, arr| arr << (n * number) }
+			multiples << row
+		end
+
+		multiples
+	end	
 end

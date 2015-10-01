@@ -13,11 +13,13 @@ In designing this program, I was asked to consider the following:
 
 Dependencies
 ---
-* rspec
+* Ruby 2.1.2 
+* RSpec 3.3.0
+* Bundler
 
 How to Run
 ---
-* Clone the repo to your local machine. 
+* Clone the repo to your local machine, run `bundle` from root directory.
 * execute `./app/run.rb` from the console to observe the normal output of the program
   * Optionally, here are a few command line options you can use:
   * `-range:N` or `-range:N-M` will generate primes up to the Nth prime or display only the Nth to Mth primes.
@@ -37,7 +39,7 @@ Given an odd integer `p`, recursively check if `p` is divisible by any integer f
 
 Once I had a brute force approach working, I set out to research other ways to test primality. I came across a simple [formula](https://primes.utm.edu/notes/faq/six.html) for testing primality. This formula, also known as the "6k plus/minus 1" is fast and it works for all prime numbers from 5 to at least 100,000 or so. I also came across another interesting formula, [Fermat's Little Theorem](https://en.wikipedia.org/wiki/Primality_test#Fermat_primality_test). 
 
-I wanted to test all 3 of these solutions implemented in Ruby. I wrote each formula as a Ruby class and ran a benchmark. These are the results of running each formula on my machine:
+I wanted to test all 3 of these solutions. Each formula was implemented as a separate class. These are the results of running each formula on my machine with Ruby's Benchmark:
 
 ```
 Testing SixK:

@@ -19,7 +19,7 @@ describe TableGenerator do
 			expect(@output.first.first).to be_a(Integer)
 		end
 
-		it 'multiples[x][y] is the product of number_set[x] * number_set[y]' do
+		it 'table_data[x][y] is the product of number_set[x] * number_set[y]' do
 			@number_set.each_with_index do |num, i|
 				other_num = @number_set.sample
 				other_num_index = @number_set.index(other_num)

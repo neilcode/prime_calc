@@ -3,17 +3,20 @@ An app that prints a multiplication table of the first 10 prime numbers to STDOU
 
 **Note:** A simple solution that does not contain multiple Primality tests, benchmark mode, etc. exists on a separate branch called `simple`. Execute it the same way, by running `app/run.rb` from console.
 
-### Summary
+Summary
+---
 In designing this program, I was asked to consider the following: 
 * Complexity: How fast does your code run? Does it scale?
 * What if we want N primes?
 * Write tests. Try to demonstrate TDD/BDD.
----
 
-### Dependencies
+
+Dependencies
+---
 * rspec
 
-### How To Run
+How to Run
+---
 * Clone the repo to your local machine. 
 * execute `./app/run.rb` from the console to observe the normal output of the program
   * Optionally, here are a few command line options you can use:
@@ -23,9 +26,10 @@ In designing this program, I was asked to consider the following:
   * `-k`  generates primes with the `6k +- 1` aka SixK algorithm to test primality.
   * `-f`  generates primes with Fermat's Little Theorem, a probabilistic primality test.
 
----
 
-### Findings
+
+Findings
+---
 My first thought in solving this challenge was to use the [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes). However, I soon realized that the Sieve is useful when you want to find all primes in a given set of numbers. Since we might want to endlessly generate primes until the Nth prime, the Sieve is not ideal. Next, I went for a simple brute force approach with trial division:
 
 Given an odd integer `p`, recursively check if `p` is divisible by any integer from `p/2` down to `2`. If a divisor is found, `p` is not prime. Move to the next odd integer, stopping when the desired number of primes have been found. 
@@ -44,7 +48,8 @@ Testing Fermat:
 Time elapsed 3734.82 milliseconds
 ```
 
-### Conclusion
+Conclusion
+---
 Fermat's terrible benchmark is likely due in part to my implementation: Since it is a probabalistic test, I chose to run it more than once for every prime number. However, even dropping the number of times the test runs to just 2 per number, the speed is still north of 2 seconds in my benchmark.
 
 My recursive approach isn't surprising. Recursion is simply not a good approach to testing primality due to memory constraints on large numbers.

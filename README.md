@@ -33,7 +33,7 @@ My recursive approach isn't surprising. Recursion is simply not a good approach 
 
 I *was* surprised at just how much faster SixK was compared to Fermat. It scales much better than the other two methods and its relatively simple to implement. 
 
-Therefore, in satisfying initial request in this code challenge, considering complexity and scalability, I would recommend the SixK method.
+**Therefore, in satisfying the initial request in this code challenge, considering complexity and scalability, I would recommend the SixK method. I have made it the default algorithm used when running the application.**
 
 ### Dependencies
 ---

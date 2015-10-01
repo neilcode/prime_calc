@@ -1,5 +1,5 @@
 require_relative '../algorithms/brute_force'
-require_relative '../algorithms/trial_division'
+require_relative '../algorithms/six_k'
 require_relative '../algorithms/fermat'
 require_relative 'prime_generator'
 require_relative 'table_generator'
@@ -36,13 +36,14 @@ class App
 
 	def run_benchmark
 		all_algorithms = ObjectSpace.each_object(Class).select{|klass| klass.superclass == PrimalityTest}
+		#grab all objects descended from our PrimalityTest base class
 		test_nums = (3..10000).step(2).to_a
 
 		all_algorithms.each do |algorithm|
 			time = Benchmark.realtime do
   			test_nums.each { |n| algorithm.is_prime?(n)}
 			end
-			puts "Testing #{algorithm}"
+			puts "Testing #{algorithm}:"
 			puts "Time elapsed #{time*1000} milliseconds"
 		end
 	end

@@ -1,6 +1,6 @@
 require_relative 'primality_test'
 
-class TrialDivision < PrimalityTest
+class SixK < PrimalityTest
 	# aka the 6k (+ || -) 1 test. moderate improvement over BruteForce
 	
 	def self.is_prime?(number)

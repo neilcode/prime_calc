@@ -3,12 +3,12 @@ require_relative 'app'
 OPTIONS = {
 	benchmark: false,
 	range: 10,
-	algorithm: Fermat
+	algorithm: SixK
 }
 
 ALGORITHMS = {
 	'-bf' => BruteForce,
-	'-td' => TrialDivision,
+	'-k'  => SixK,
 	'-f'  => Fermat
 }
 
@@ -18,6 +18,7 @@ def parse_args
 	if algorithm_type = ARGV.find {|a| ALGORITHMS.keys.include?(a)}
 		OPTIONS[:algorithm] = ALGORITHMS[algorithm_type]
 	end
+	# checking ARGV in this way ignores multiple algorithm args being passed from the command line
 
 	if range = ARGV.find {|a| a.include?("range:") }
 		range = range.gsub("-range:", "").split("-").map(&:to_i)
@@ -30,7 +31,6 @@ end
 #runcode
 
 parse_args if ARGV.any?
-puts OPTIONS
 app = App.new(OPTIONS)
 app.run
 

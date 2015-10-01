@@ -1,7 +1,9 @@
 require 'rspec'
-Dir["../algorithms/*.rb"].each {|file| require_relative file }
+require_relative '../algorithms/brute_force'
+require_relative '../algorithms/six_k'
+require_relative '../algorithms/fermat'
 
-algorithms = [BruteForce, TrialDivision, Fermat]
+algorithms = [BruteForce, SixK, Fermat]
 
 algorithms.each do |algorithm|
 	describe algorithm do

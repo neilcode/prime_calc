@@ -4,7 +4,7 @@ class Fermat < PrimalityTest
 	#Fermat's Little Theorem
 	
 	def self.is_prime?(number)
-		10.times do  #safe to assume a number is prime after 10 tests
+		5.times do  #safe to assume a number is prime after 5 tests
 			a = rand(2..number-1)
 			return false unless (a**(number-1) % number) == 1
 		end

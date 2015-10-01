@@ -11,14 +11,12 @@ class PrimeGenerator
 											 else
 												 (1..10)
 											 end
-    @last_prime = range_requested.max                 
 	  @algorithm = algorithm
-    @primes = [2]
   end
 
   def primes
   	@primes ||= algorithm.get_primes(range_requested.max)
-    @primes[range_requested]
+    @primes[adjusted_range]
   end
 
   private

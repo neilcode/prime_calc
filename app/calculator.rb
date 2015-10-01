@@ -1,5 +1,5 @@
 class Calculator
-
+	#creates a multiplication table from a set of numbers
 	attr_reader :number_set
 
 	def initialize(data)

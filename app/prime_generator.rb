@@ -22,7 +22,7 @@ class PrimeGenerator
   def primes
   	@primes ||= algorithm.get_primes(range_requested.max)
   	
-  	@primes[range_requested.min - 1..range_requested.max - 1]
+  	@primes[(range_requested.min - 1)..(range_requested.max - 1)]
   end
 
   private

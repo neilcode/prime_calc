@@ -1,6 +1,6 @@
 require 'rspec'
-require_relative '../prime_generator'
-require_relative '../algorithms/BruteForce'
+require_relative '../app/prime_generator'
+require_relative '../algorithms/brute_force'
 
 describe PrimeGenerator do
 	describe 'Instantiation' do
@@ -40,7 +40,7 @@ describe PrimeGenerator do
 	
 			it 'returns the Nth to Mth primes' do
 				range = (3..5)
-				allow(@algorithm).to receive(:get_primes).with(5) { [2,3,5,7,11] }
+				allow(@algorithm).to receive(:get_primes).with(5) { [2,3,5,7,11,13] }
 
 				generator = PrimeGenerator.new(@algorithm, range)
 				expect(generator.primes).to eq([5,7,11])

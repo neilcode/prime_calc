@@ -1,10 +1,12 @@
+require_relative 'calculator' 
+
 class TableGenerator
 
 	attr_reader :header
 
-	def initialize(header_row, calculator)
-		@header = header_row
-		@calculator = calculator
+	def initialize(numbers)
+		@header = numbers
+		@calculator = Calculator.new(numbers)
 	end
 
 	def draw
@@ -35,4 +37,5 @@ class TableGenerator
 	def calculator
 		@calculator
 	end
+	
 end

@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../calculator.rb'
+require_relative '../app/calculator'
 
 describe Calculator do
 	describe 'initialization' do

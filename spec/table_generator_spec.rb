@@ -1,10 +1,10 @@
 require 'rspec'
-require_relative '../table_generator'
+require_relative '../app/table_generator'
 
 describe TableGenerator do
 	describe 'Instantiation' do
 		it 'accepts a header row in the form of an array' do
-			expect { TableGenerator.new([1,2,3], nil) }.to_not raise_error
+			expect { TableGenerator.new([1,2,3]) }.to_not raise_error
 		end
 	end
 
@@ -14,7 +14,7 @@ describe TableGenerator do
 			@calc = double('Calculator')
 			@header_row = ['a','b','c']
 			allow(@calc).to receive(:data) { [[1,2,3], [3,4,5], [6,7,8]]}
-			@table = TableGenerator.new(@header_row, @calc)
+			@table = TableGenerator.new(@header_row)
 		end
 
 		it 'returns an array of arrays' do

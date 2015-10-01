@@ -1,12 +1,37 @@
-require_relative '../algorithms/brute_force'
-require_relative '../algorithms/trial_division'
-require_relative 'calculator'
-require_relative 'prime_generator'
-require_relative 'table_generator'
+require_relative 'app'
+
+OPTIONS = {
+	benchmark: false,
+	range: 10,
+	algorithm: Fermat
+}
+
+ALGORITHMS = {
+	'-bf' => BruteForce,
+	'-td' => TrialDivision,
+	'-f'  => Fermat
+}
+
+def parse_args
+	OPTIONS[:benchmark] = true if ARGV.include?("-benchmark")
+	
+	if algorithm_type = ARGV.find {|a| ALGORITHMS.keys.include?(a)}
+		OPTIONS[:algorithm] = ALGORITHMS[algorithm_type]
+	end
+
+	if range = ARGV.find {|a| a.include?("range:") }
+		range = range.gsub("-range:", "").split("-").map(&:to_i).last(2)
+		
+		range.length >= 2 ? OPTIONS[:range] = (range.first..range.last) : OPTIONS[:range] = range.first
+	end
+end	
 
 
-primes = PrimeGenerator.new(TrialDivision).primes
-calculator = Calculator.new(primes)
-output = TableGenerator.new(primes, calculator)
+#runcode
 
-output.draw
+parse_args if ARGV.any?
+puts OPTIONS
+app = App.new(OPTIONS)
+app.run
+
+

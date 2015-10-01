@@ -1,9 +1,7 @@
 require 'rspec'
-require_relative '../algorithms/brute_force'
 require_relative '../algorithms/six_k'
-require_relative '../algorithms/fermat'
 
-algorithms = [BruteForce, SixK, Fermat]
+algorithms = [SixK]
 
 algorithms.each do |algorithm|
 	describe algorithm do

@@ -1,6 +1,6 @@
 require 'rspec'
 require_relative '../app/prime_generator'
-require_relative '../algorithms/brute_force'
+require_relative '../algorithms/six_k'
 
 describe PrimeGenerator do
 	describe 'Instantiation' do
@@ -12,7 +12,7 @@ describe PrimeGenerator do
 
 	describe '#primes' do
 		before do
-			@algorithm = double('BruteForce')
+			@algorithm = double('SixK')
 		end
 	
 		context 'with no additional arguments' do

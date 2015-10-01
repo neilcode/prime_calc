@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../table_generator'
+require_relative '../app/table_generator'
 
 describe TableGenerator do
 	describe 'Instantiation' do

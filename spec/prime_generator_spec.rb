@@ -1,6 +1,6 @@
 require 'rspec'
-require_relative '../prime_generator'
-require_relative '../algorithms/BruteForce'
+require_relative '../app/prime_generator'
+require_relative '../algorithms/brute_force'
 
 describe PrimeGenerator do
 	describe 'Instantiation' do
